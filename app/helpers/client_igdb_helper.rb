@@ -16,7 +16,7 @@ module ClientIgdbHelper
 
   def conn
     options = {
-      url: 'https://api.igdb.com/v4',
+      url: Rails.application.credentials.dig(:igdb, :base_url),
       headers: { 'Client-ID': AuthStorage.client_id }
     }
 
