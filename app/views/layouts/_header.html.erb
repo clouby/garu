@@ -1,0 +1,85 @@
+<header class="flex h-14 items-center gap-4 border-b bg-purple-100/40 px-6 py-4 dark:bg-purple-800/40">
+    <a class="lg:hidden" href="#" rel="ugc">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 text-purple-500 dark:text-purple-400"
+      >
+        <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+        <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+        <path d="M12 3v6"></path>
+      </svg>
+      <span class="sr-only">Home</span>
+    </a>
+    <div class="w-full flex-1">
+      <form>
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="absolute left-2.5 top-2.5 h-4 w-4 text-purple-500 dark:text-purple-400"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input
+            type="search"
+            class="flex h-10 rounded-md border border-slate-300 border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent focus-visible:border-purple-400 file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed focus-visible:ring-purple-400 disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3"
+            placeholder="Search games..."
+          />
+        </div>
+      </form>
+    </div>
+    <button
+      class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full border border-purple-200 w-8 h-8 dark:border-purple-500"
+      type="button"
+      id="radix-:Rdrnnnla:"
+      aria-haspopup="menu"
+      aria-expanded="false"
+      data-state="closed"
+      data-dropdown-toggle="dropdown"
+    >
+      <img
+        alt="Avatar"
+        class="rounded-full"
+        height="32"
+        src="https://generated.vusercontent.net/placeholder.svg"
+        style="aspect-ratio:32/32;object-fit:cover"
+        width="32"
+      />
+      <span class="sr-only">Toggle user menu</span>
+    </button>
+    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+      <div class="px-4 py-1.5 text-sm font-semibold">
+        My Account
+      </div>
+      <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+        </li>
+      </ul>
+    </div>
+</header>

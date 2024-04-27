@@ -1,0 +1,217 @@
+<div class="flex items-center">
+  <h1 class="font-semibold text-lg md:text-2xl text-purple-600">My Games</h1>
+  <button class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-9 rounded-md px-3 ml-auto bg-purple-600 text-white">
+    Add Game
+  </button>
+</div>
+<div class="grid gap-6 md:gap-8 lg:grid-cols-3">
+  <%= render(CardComponent.with_collection(@games)) %>
+</div>
+<div class="flex items-center">
+  <h1 class="font-semibold text-lg md:text-2xl text-purple-600">Currently Playing</h1>
+</div>
+<div class="border shadow-sm rounded-lg border-purple-200">
+  <div class="relative w-full overflow-auto">
+    <table class="w-full caption-bottom text-sm">
+      <thead class="[&amp;_tr]:border-b">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[80px]">
+            Image
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 max-w-[150px]">
+            Name
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            Category
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            Rating
+          </th>
+        </tr>
+      </thead>
+      <tbody class="[&amp;_tr:last-child]:border-0">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 1
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Action</td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">4.5</td>
+        </tr>
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 2
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Adventure</td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">5.0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex items-center">
+  <h1 class="font-semibold text-lg md:text-2xl text-purple-600">Recommended Games</h1>
+  <button class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-9 rounded-md px-3 ml-auto bg-purple-600 text-white">
+    Recommend Game
+  </button>
+</div>
+<div class="border shadow-sm rounded-lg border-purple-200">
+  <div class="relative w-full overflow-auto">
+    <table class="w-full caption-bottom text-sm">
+      <thead class="[&amp;_tr]:border-b">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[80px]">
+            Image
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 max-w-[150px]">
+            Name
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody class="[&amp;_tr:last-child]:border-0">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 4
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            This is a description of Game 4.
+          </td>
+        </tr>
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 5
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            This is a description of Game 5.
+          </td>
+        </tr>
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 6
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            This is a description of Game 6.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex items-center">
+  <h1 class="font-semibold text-lg md:text-2xl text-purple-600">
+    Friends' Recommendations
+  </h1>
+</div>
+<div class="border shadow-sm rounded-lg border-purple-200">
+  <div class="relative w-full overflow-auto">
+    <table class="w-full caption-bottom text-sm">
+      <thead class="[&amp;_tr]:border-b">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[80px]">
+            Image
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 max-w-[150px]">
+            Name
+          </th>
+          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+            Recommended By
+          </th>
+        </tr>
+      </thead>
+      <tbody class="[&amp;_tr:last-child]:border-0">
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 7
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Friend 1</td>
+        </tr>
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 8
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Friend 2</td>
+        </tr>
+        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+            <img
+              alt="Game image"
+              class="aspect-square rounded-md object-cover"
+              height="64"
+              src="https://generated.vusercontent.net/placeholder.svg"
+              width="64"
+            />
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium text-purple-600">
+            Game 9
+          </td>
+          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Friend 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
