@@ -21,7 +21,10 @@ module ClientIgdbHelper
     }
 
     Faraday.new(options) do |builder|
+      # Include our authorization token for get access to IGDB
       builder.request :authorization, 'Bearer', -> { AuthStorage.access_token }
+
+      # Supports builder for only support application/json format
       builder.request :json
       builder.response :json
     end
