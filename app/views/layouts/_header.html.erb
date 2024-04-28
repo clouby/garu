@@ -19,7 +19,7 @@
       <span class="sr-only">Home</span>
     </a>
     <div class="w-full flex-1">
-      <form>
+      <%= form_with url: games_path, method: :get do |form| %>
         <div class="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,13 +36,9 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
           </svg>
-          <input
-            type="search"
-            class="flex h-10 rounded-md border border-slate-300 border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent focus-visible:border-purple-400 file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed focus-visible:ring-purple-400 disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3"
-            placeholder="Search games..."
-          />
+          <%= form.search_field :q, class: "flex h-10 rounded-md border border-slate-300 border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent focus-visible:border-purple-400 file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed focus-visible:ring-purple-400 disabled:opacity-50 w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3", placeholder: "Search games...", value: @query, autofocus: !@query.nil? %>
         </div>
-      </form>
+      <% end %>
     </div>
     <button
       class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full border border-purple-200 w-8 h-8 dark:border-purple-500"

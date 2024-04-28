@@ -2,20 +2,13 @@
 
 # class IgdbController
 class IgdbController < ApplicationController
-  include ClientIgdbHelper
+  include ApiIgdb
 
   def query
-    response = conn.post('games') do |req|
-      req.body = field_params
-    end
-    render json: response.body
+    render json: igdb_query
   end
 
-  private
-
-  def field_params
-    fields = params.fetch(:fields, '*')
-    fields = '*' if fields.nil?
-    "fields #{fields};"
+  def search
+    render json: igdb_search
   end
 end
