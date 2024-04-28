@@ -37,7 +37,7 @@ module ApiIgdb
     end
 
     # Handler Errors Sections
-    def handle_parameter_missing(_exception)
+    def handle_parameter_missing
       redirect_to root_path
     end
   end

@@ -2,8 +2,8 @@
 
 # module ClientIgdbHelper
 module ClientIgdbHelper
-  # class AuthStorage
-  class AuthStorage
+  # class IgdbToken
+  class IgdbToken
     # TODO: Find a solution to store and handle expiration/refresh token for IGDB
     def self.access_token
       Rails.application.credentials.dig(:igdb, :access_token)
@@ -17,12 +17,12 @@ module ClientIgdbHelper
   def conn
     options = {
       url: Rails.application.credentials.dig(:igdb, :base_url),
-      headers: { 'Client-ID': AuthStorage.client_id }
+      headers: { 'Client-ID': IgdbToken.client_id }
     }
 
     Faraday.new(options) do |builder|
       # Include our authorization token for get access to IGDB
-      builder.request :authorization, 'Bearer', -> { AuthStorage.access_token }
+      builder.request :authorization, 'Bearer', -> { IgdbToken.access_token }
 
       # Supports builder for only support application/json format
       builder.request :json
