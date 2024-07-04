@@ -22,9 +22,9 @@ categories.each do |category|
 end
 
 video_games.each do |video_game|
-  category = Category.first
-  video_game_instance = VideoGame.find_or_create_by!(**video_game)
-  video_game_instance.categories << category
+  category = Category.order('RANDOM()').first
+  video_game_i = VideoGame.find_or_create_by!(**video_game)
+  video_game_i.categories << category
 
-  video_game_instance.image.attach(io: File.open('db/images/diablo-iv.jpeg'), filename: 'default.jpeg')
+  video_game_i.image.attach(io: File.open('db/images/diablo-iv.jpeg'), filename: 'default.jpeg')
 end

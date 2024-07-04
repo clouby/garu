@@ -1,4 +1,13 @@
-<div>
-  <h1 class="font-bold text-4xl">Games Results</h1>
-  <%= render(PreviewCardComponent.with_collection(@games)) %>
-</div>
+<section class="w-full py-12">
+  <div class="container grid gap-6 md:gap-8 px-4 md:px-6 max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+      <div class="grid gap-1">
+        <h1 class="text-2xl font-bold tracking-tight">Game Results</h1>
+        <p class="text-muted-foreground">Explore our wide range of games that you matched on the search.</p>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+      <%= render(PreviewCardComponent.with_collection(@games)) %>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,16 @@
-<div>
- <h3> <%= @item['name'] %></h3>
-</div>
+<article class="grid gap-4 relative group">
+  <a class="absolute inset-0 z-10" href="#" rel="ugc">
+    <span class="sr-only">View</span>
+  </a>
+  <img
+      src="https://images.igdb.com/igdb/image/upload/t_1080p/<% if @item['cover'] %><%= @item['cover']['image_id'] %><% else %><%= @item['screenshots'][0]['image_id'] %><% end %>.jpg"
+    alt="<%= @item['name'] %> <%= t(".cover_image") %>"
+    width="300"
+    height="400"
+    class="rounded-lg object-cover w-full aspect-[3/4] group-hover:opacity-50 transition-opacity"
+  />
+  <div class="grid gap-1">
+    <h3 class="font-semibold"> <%= @item['name'] %></h3>
+    <p class="text-sm leading-none text-muted-foreground truncate text-ellipsis"><%= @item['summary'].truncate(50) %></p>
+  </div>
+</article>

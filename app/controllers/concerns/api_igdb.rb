@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# module ApiIgdb
 module ApiIgdb
   extend ActiveSupport::Concern
   include ClientIgdbHelper
@@ -17,7 +20,7 @@ module ApiIgdb
 
     private
 
-    # Params Sections
+    # Params Support Request
     def field_params
       fields = params.fetch(:fields, '*')
       fields = '*' if fields.nil?
@@ -26,10 +29,11 @@ module ApiIgdb
 
     def search_params
       value = params.require(:q)
-      "search \"#{value}\"; fields name;"
+      # "search \"#{value}\"; fields *;"
+      "search \"#{value}\"; fields name,summary,screenshots.*,cover.*;"
     end
 
-    # Request Sections
+    # Request Support
     def request_games(value)
       conn.post('games') do |req|
         req.body = value
