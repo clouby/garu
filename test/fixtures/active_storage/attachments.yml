@@ -1,4 +1,9 @@
 first_thumbnail_attachment:
-  name: thumbnail
+  name: image
   record: first (VideoGame)
+  blob: first_thumbnail_blob
+
+second_thumbnail_attachment:
+  name: image
+  record: second (VideoGame)
   blob: first_thumbnail_blob

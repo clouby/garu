@@ -1,6 +1,6 @@
  <div class="flex flex-col gap-4 rounded-lg border bg-card bg-white text-card-foreground shadow-sm p-4">
     <div class="flex flex-col space-y-1.5 p-6 mb-6">
-      <h3 class="text-2xl font-semibold leading-none tracking-tight"> <%= @item.name %> </h3>
+      <h3 class="text-2xl font-semibold leading-none tracking-tight"><%= @item.name %></h3>
     </div>
     <div class="p-6">
       <%= image_tag @item.image.variant(:thumbnail), alt: @item.name, class: "aspect-square object-cover w-full rounded-lg overflow-hidden", height: 300, width: 300 %>
