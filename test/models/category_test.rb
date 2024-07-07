@@ -11,7 +11,6 @@ class CategoryTest < ActiveSupport::TestCase
 
   test 'should be invalid without name present' do
     @category.name = nil
-
     refute @category.valid?
   end
 end
