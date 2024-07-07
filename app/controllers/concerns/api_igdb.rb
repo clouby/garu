@@ -29,7 +29,6 @@ module ApiIgdb
 
     def search_params
       value = params.require(:q)
-      # "search \"#{value}\"; fields *;"
       "search \"#{value}\"; fields name,summary,screenshots.*,cover.*;"
     end
 
