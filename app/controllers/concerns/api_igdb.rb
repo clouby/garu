@@ -41,8 +41,8 @@ module ApiIgdb
     end
 
     # Handler Errors Sections
-    def handle_parameter_missing
-      redirect_to root_path
+    def handle_parameter_missing(exception)
+      render json: { error: exception.message }, status: :bad_request
     end
   end
 end

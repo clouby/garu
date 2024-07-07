@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   # Include routes supported fetching data to IGDB API
   scope :igdb do
-    get 'query', to: 'igdb#query'
-    get 'search', to: 'igdb#search'
+    get 'query', to: 'igdb#query', as: :igdb_query
+    get 'search', to: 'igdb#search', as: :igdb_search
   end
 
   # Include routes for Games routes
