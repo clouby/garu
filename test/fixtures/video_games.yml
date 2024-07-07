@@ -1,7 +1,16 @@
 first:
   name: Kingdom Hearts 2
-  description: El juego comienza con Roxas, un chico de quince años...
+  description: A series of action role-playing games created by Japanese game designers Tetsuya Nomura and Shinji Hashimoto, being developed and...
 
 second:
   name: Elden Ring
   description: It includes elements that are similar to those in other FromSoftware-developed games...
+
+third:
+  name: Bloodbourne
+  description: he best information on weapons, armor, classes, items, locations, secrets, gestures, walkthroughs, and maps...
+
+old_first:
+  name: Kingdom Hearts
+  description: A series of action role-playing games created by Japanese game designers Tetsuya Nomura and Shinji Hashimoto, being developed and...
+  created_at: <%= 2.week.ago %>

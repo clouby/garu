@@ -22,7 +22,7 @@ categories.each do |category|
 end
 
 video_games.each do |video_game|
-  category = Category.order('RANDOM()').first
+  category = Category.first
   video_game_i = VideoGame.find_or_create_by!(**video_game)
   video_game_i.categories << category
 
