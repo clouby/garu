@@ -11,6 +11,10 @@ class VideoGameTest < ActiveSupport::TestCase
     assert_not @video_game.save
   end
 
+  test 'should have a category tied' do
+    assert_equal 1, @video_game.categories.size
+  end
+
   test 'should be a valid video game' do
     assert @video_game.valid?
   end
