@@ -9,6 +9,11 @@ class CategoryTest < ActiveSupport::TestCase
     assert @category.valid?
   end
 
+  test 'should not save the category without name' do
+    @category.name = nil
+    refute @category.save
+  end
+
   test 'should be invalid without name present' do
     @category.name = nil
     refute @category.valid?

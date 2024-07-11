@@ -7,3 +7,13 @@ second_thumbnail_attachment:
   name: image
   record: second (VideoGame)
   blob: first_thumbnail_blob
+
+third_thumbnail_attachment:
+  name: image
+  record: third (VideoGame)
+  blob: first_thumbnail_blob
+
+old_first_thumbnail_attachment:
+  name: image
+  record: old_first (VideoGame)
+  blob: first_thumbnail_blob

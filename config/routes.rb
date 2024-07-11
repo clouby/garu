@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   # Include routes for Games routes
-  scope :games do
-    get '/', to: 'games#index', as: :games
+  scope :games, as: :games do
+    get '/', to: 'games#index'
   end
 
   # Defines the root path route ("/")

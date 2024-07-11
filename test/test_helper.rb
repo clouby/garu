@@ -15,3 +15,14 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+module MinitestGlobalPlugin
+  def teardown
+    super
+    Faraday.default_connection = nil
+  end
+end
+
+class Minitest::Test
+  include MinitestGlobalPlugin
+end
