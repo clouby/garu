@@ -4,11 +4,11 @@ require 'test_helper'
 
 class CardComponentTest < ViewComponent::TestCase
   def test_render_preview
-    video_game = video_games(:first, :second)
-    render_preview(:with_default_item, params: { items: video_game })
+    render_preview(:with_default_item, params: { items: video_games(:first, :second, :third) })
 
     assert_text('Elden Ring')
     assert_text('Kingdom Hearts 2')
+    assert_text('Bloodbourne')
   end
 
   def test_render_component
