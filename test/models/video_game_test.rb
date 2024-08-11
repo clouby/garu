@@ -19,6 +19,11 @@ class VideoGameTest < ActiveSupport::TestCase
     assert @video_game.valid?
   end
 
+  test 'should contain multiple categories for a videogame' do
+    current_video_game = video_games(:third)
+    assert_equal 2, current_video_game.categories.size
+  end
+
   test 'should be invalid without description' do
     @video_game.description = nil
     refute @video_game.valid?, 'video game is invalid without a description'

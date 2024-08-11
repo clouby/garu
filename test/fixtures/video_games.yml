@@ -10,6 +10,7 @@ second:
 third:
   name: Bloodbourne
   description: The best information on weapons, armor, classes, items, locations, secrets, gestures, walkthroughs, and maps...
+  categories: one, two
 
 old_first:
   name: Kingdom Hearts

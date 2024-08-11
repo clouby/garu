@@ -11,5 +11,5 @@ class VideoGame < ApplicationRecord
     attachable.variant :thumbnail, resize_to_limit: [300, 300]
   end
 
-  scope :recent, -> { where('created_at > ?', 1.weeks.ago) }
+  scope :recent, -> { where('created_at > ?', 1.week.ago) }
 end

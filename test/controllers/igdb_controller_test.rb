@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class IgdbControllerTest < ActionDispatch::IntegrationTest
   test 'should get query route successfully' do
@@ -18,6 +18,10 @@ class IgdbControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :bad_request
     assert_equal 'application/json', @response.media_type
+  end
+
+  test 'should return a search route with some request status' do
+    get igdb_query_url
   end
 
   test 'should throw search route with blank content with bad request' do

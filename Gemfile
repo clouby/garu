@@ -76,3 +76,5 @@ gem 'view_component'
 
 # Add Faraday for HTTP CLient
 gem 'faraday'
+
+gem 'devise', '~> 4.9'
