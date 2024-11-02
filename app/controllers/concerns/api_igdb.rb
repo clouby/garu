@@ -37,6 +37,10 @@ module ApiIgdb
       conn.post('games') do |req|
         req.body = value
       end
+    rescue Faraday::UnauthorizedError => e
+      puts e.response[:status]
+      puts e.response[:headers]
+      {}
     end
 
     # Handler Errors Sections
