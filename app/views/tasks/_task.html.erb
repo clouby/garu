@@ -1,0 +1,12 @@
+<%= tag.div id: dom_id(task), class: "card bg-base-100 shadow-xl" do %>
+  <div class="card-body">
+    <h2 class="card-title"><%= task.title %></h2>
+    <p><%= task.description %></p>
+    <div class="card-actions justify-end">
+      <span class="badge badge-ghost"><%= task.status %></span>
+      <span class="badge badge-ghost"><%= task.user.email %></span>
+      <%= link_to "Show this task", task, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+

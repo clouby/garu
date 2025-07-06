@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="silk">
   <head>
     <title><%= content_for(:title) || "Garu" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,10 +18,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+  <body class="bg-base-200">
+    <%= render "layouts/header" %>
+    <main class="mx-auto md:w-2/3 w-full px-4 bg-base-200 min-h-screen">
+      <%= yield %>
+    </main>
   </body>
 </html>

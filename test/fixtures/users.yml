@@ -1,11 +1,43 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+simon:
+  email: simon@koko.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+carlos:
+  email: carlos@koko.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
+
+bob:
+  email: bob@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'anotherpassword') %>
+
+charlie:
+  email: charlie@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'cpassword') %>
+
+diana:
+  email: diana@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'dpassword') %>
+
+eve:
+  email: eve@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'epassword') %>
+
+frank:
+  email: frank@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'fpassword') %>
+
+grace:
+  email: grace@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'gpassword') %>
+
+heidi:
+  email: heidi@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'hpassword') %>
+
+ivan:
+  email: ivan@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'ipassword') %>
+
+judy:
+  email: judy@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'jpassword') %>

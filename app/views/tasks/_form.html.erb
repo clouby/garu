@@ -1,0 +1,61 @@
+<%= form_with(model: task, class: "card-body") do |form| %>
+  <% if task.errors.any? %>
+    <div role="alert" class="alert alert-error">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="stroke-current shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        /></svg>
+      <div>
+        <h3 class="font-bold"><%= pluralize(task.errors.count, "error") %>
+          prohibited this task from being saved:</h3>
+        <div class="text-xs">
+          <ul class="list-disc list-inside">
+            <% task.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="fieldset">
+    <%= form.label :name, class: "fieldset-legend" %>
+    <%= form.text_field :name, class: "input w-full", placeholder: "Type your task name" %>
+    <p class="label">Required</p>
+  </div>
+
+  <div class="fieldset">
+    <%= form.label :description, class: "fieldset-legend" %>
+    <%= form.text_area :description,
+                   rows: 4,
+                   class: "textarea w-full",
+                   placeholder: "Type your task description" %>
+    <p class="label">Required</p>
+  </div>
+
+  <div class="fieldset">
+    <%= form.label :status, class: "fieldset-legend" %>
+    <%= form.select :status,
+                options_for_select(
+                  Task.statuses.map do |key, value|
+                    [key.titleize, Task.statuses.key(value)]
+                  end,
+                ),
+                {},
+                { class: "select w-full" } %>
+
+    <p class="label">Optional</p>
+  </div>
+
+  <div class="flex mt-6">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
