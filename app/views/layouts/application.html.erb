@@ -20,8 +20,9 @@
 
   <body class="bg-base-200">
     <%= render "layouts/header" %>
-    <main class="mx-auto md:w-2/3 w-full px-4 bg-base-200 min-h-screen">
+    <main class="mx-auto md:w-2/3 w-full px-4 bg-base-200 min-h-screen pt-24">
       <%= yield %>
     </main>
+    <%= render "layouts/footer" %>
   </body>
 </html>

@@ -17,7 +17,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    p task_params
+    @task = current_user.tasks.build(task_params)
 
     if @task.save
       redirect_to @task, notice: "Task was successfully created."
@@ -27,10 +28,13 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to @task, notice: "Task was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to @task, notice: "Task was successfully updated." }
+        format.turbo_stream
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -45,6 +49,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :description, :status)
+      params.require(:task).permit(:name, :description, :content, :status)
     end
 end

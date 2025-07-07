@@ -1,12 +1,50 @@
-<%= tag.div id: dom_id(task), class: "card bg-base-100 shadow-xl" do %>
+<div
+  id="<%= dom_id(task) %>"
+  class="card bg-base-100 shadow-md transition-shadow duration-300"
+>
   <div class="card-body">
-    <h2 class="card-title"><%= task.title %></h2>
-    <p><%= task.description %></p>
-    <div class="card-actions justify-end">
-      <span class="badge badge-ghost"><%= task.status %></span>
-      <span class="badge badge-ghost"><%= task.user.email %></span>
-      <%= link_to "Show this task", task, class: "btn btn-primary" %>
+    <div class="flex justify-between items-start gap-4">
+      <h2 class="card-title text-lg font-semibold"><%= task.name %></h2>
+      <%= form_with(model: task, data: { controller: 'autosubmit' }) do |form| %>
+        <%= form.select :status,
+                    options_for_select(
+                      Task.statuses.keys.map { |s| [s.titleize, s] },
+                      task.status,
+                    ),
+                    {},
+                    {
+                      class: "select select-bordered select-sm",
+                      onchange: "this.form.requestSubmit()",
+                    } %>
+      <% end %>
+    </div>
+
+    <% if task.description.present? %>
+      <p class="text-base-content/70 mt-2 text-sm">
+        <%= truncate(task.description, length: 100) %>
+      </p>
+    <% end %>
+
+    <div class="card-actions justify-between items-center mt-4">
+      <span class="text-xs text-base-content/50">
+        <%= task.user.email %>
+      </span>
+      <%= link_to task, class: "btn btn-ghost btn-sm btn-square" do %>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+          />
+        </svg>
+      <% end %>
     </div>
   </div>
-<% end %>
-
+</div>

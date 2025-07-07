@@ -29,16 +29,22 @@
   <div class="fieldset">
     <%= form.label :name, class: "fieldset-legend" %>
     <%= form.text_field :name, class: "input w-full", placeholder: "Type your task name" %>
-    <p class="label">Required</p>
+    <p class="label"><%= t("form.required") %></p>
   </div>
 
   <div class="fieldset">
     <%= form.label :description, class: "fieldset-legend" %>
     <%= form.text_area :description,
-                   rows: 4,
+                   rows: 1,
                    class: "textarea w-full",
                    placeholder: "Type your task description" %>
-    <p class="label">Required</p>
+    <p class="label"><%= t("form.required") %></p>
+  </div>
+
+  <div class="fieldset">
+    <%= form.label :content, class: "fieldset-legend" %>
+    <%= form.rich_text_area :content, class: "textarea w-full" %>
+    <p class="label"><%= t("form.required") %></p>
   </div>
 
   <div class="fieldset">
@@ -48,14 +54,16 @@
                   Task.statuses.map do |key, value|
                     [key.titleize, Task.statuses.key(value)]
                   end,
+                  task.status,
                 ),
                 {},
-                { class: "select w-full" } %>
+                { class: "select w-full", disabled: task.new_record? } %>
 
-    <p class="label">Optional</p>
+    <p class="label"><%= t("form.optional") %></p>
   </div>
 
-  <div class="flex mt-6">
+  <div class="flex mt-6 justify-between items-end">
+    <%= link_to "Back to tasks", tasks_path, class: "btn btn-ghost mt-4" %>
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
