@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.sort_by_name
   end
 
   def show
@@ -17,7 +17,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    p task_params
     @task = current_user.tasks.build(task_params)
 
     if @task.save
@@ -50,5 +49,9 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:name, :description, :content, :status)
+    end
+
+    def task_params_user
+      params.require(:user).permit(:name, :email, :password)
     end
 end

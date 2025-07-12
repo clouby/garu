@@ -1,11 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
+  name: "Buy milk"
+  description: "Get 2% milk from the store"
   user: simon
 
 two:
-  name: MyString
-  description: MyText
+  name: "Walk the dog"
+  description: "Take Fido for a 30 minute walk"
+  user: carlos
+
+three:
+  name: "Do laundry"
+  description: "Wash, dry, and fold all clothes"
+  user: simon
+
+four:
+  name: "Clean the kitchen"
+  description: "Wipe counters, do dishes, and sweep the floor"
   user: carlos

@@ -9,4 +9,10 @@ class Task < ApplicationRecord
   enum :status, {
     todo: "todo", progress: "progress", completed: "completed"
   }, prefix: true
+
+  protected
+
+  def self.sort_by_name
+    order(:name)
+  end
 end
