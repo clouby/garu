@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
+  include TasksHelper
+
   before_action :authenticate_user!
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @tasks = current_user.tasks.sort_by_name
+    @rawg_games = rawg_search_games.body
   end
 
   def show
@@ -49,9 +52,5 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:name, :description, :content, :status)
-    end
-
-    def task_params_user
-      params.require(:user).permit(:name, :email, :password)
     end
 end
