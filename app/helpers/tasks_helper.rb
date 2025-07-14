@@ -22,7 +22,11 @@ module TasksHelper
       end
   end
 
-  def rawg_search_games
+  def rawg_games
     rawg_connection.get("games")
+  end
+
+  def rawg_games_by_id (id)
+    rawg_connection.get("games/#{id}")
   end
 end
