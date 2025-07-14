@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks.sort_by_name
-    @rawg_games = rawg_games.body
+    @games = rawg_games.body
   end
 
   def show
