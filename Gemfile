@@ -61,3 +61,5 @@ gem "devise", "~> 4.9"
 gem "tailwindcss-rails", "~> 4.2"
 
 gem "faraday", "~> 2.13"
+
+gem "breadcrumbs_on_rails", "~> 4.1"

@@ -15,7 +15,7 @@ module TasksHelper
   def rawg_connection
     Faraday.new(
       url: Rails.application.credentials.dig(:rawg, :base_api_url),
-      params: { key: Rails.application.credentials.dig(:rawg, :api_key), page_size: 10 }
+      params: { key: Rails.application.credentials.dig(:rawg, :api_key), page_size: 20 }
     ) do |f|
         f.request :json
         f.response :json

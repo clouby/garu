@@ -5,7 +5,7 @@
   <div class="card-body">
     <div class="flex justify-between items-start gap-4">
       <h2 class="card-title text-lg font-semibold"><%= task.name %></h2>
-      <%= form_with(model: task, data: { controller: 'autosubmit' }) do |form| %>
+      <%= form_with(model: task) do |form| %>
         <%= form.select :status,
                     options_for_select(
                       Task.statuses.keys.map { |s| [s.titleize, s] },
