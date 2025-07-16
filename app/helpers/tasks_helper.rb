@@ -26,6 +26,13 @@ module TasksHelper
     rawg_connection.get("games")
   end
 
+  def rawg_games_recent_releases
+     rawg_connection.get("games") do |req|
+        req.params["page_size"] = 6
+        req.params["ordering"] = "released"
+    end
+  end
+
   def rawg_games_by_id (id)
     rawg_connection.get("games/#{id}")
   end

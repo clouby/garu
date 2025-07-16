@@ -10,9 +10,6 @@ class Task < ApplicationRecord
     todo: "todo", progress: "progress", completed: "completed"
   }, prefix: true
 
-  protected
-
-  def self.sort_by_name
-    order(:name)
-  end
+  scope :sort_by_name, -> { order(:name) }
+  scope :recent_created, -> { order(created_at: :desc) }
 end

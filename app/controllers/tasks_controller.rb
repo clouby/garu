@@ -5,19 +5,17 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = current_user.tasks.sort_by_name
-    @games = rawg_games.body
+    @tasks = current_user.tasks.recent_created
+    @games = rawg_games_recent_releases.body
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @task = Task.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @task = current_user.tasks.build(task_params)

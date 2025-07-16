@@ -34,13 +34,16 @@ class TasksTest < ApplicationSystemTestCase
     assert_selector "h2", text: "Updated Task"
   end
 
+  # FIXME: Please take a look what's causing the error on this tast case.
   test "destroying a Task" do
     visit task_url(@task)
 
     click_on "Delete"
-    click_on "Delete Task"
+
+    within("#modal_confirm_delete") do
+      click_on "Delete Task"
+    end
 
     assert_text "Task was successfully destroyed"
   end
 end
-

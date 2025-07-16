@@ -14,21 +14,6 @@
   <% if @tasks.any? %>
     <div id="tasks" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <%= render @tasks %>
-      <% @games["results"].each do |game| %>
-        <div class="card w-96 bg-base-100 shadow-xl image-full h-64">
-          <figure><img
-              src="<%= game["background_image"] %>"
-              alt="<%= game["name"] %>"
-              class="scale-[1.2]"
-            /></figure>
-          <div class="card-body justify-between">
-            <h2 class="card-title"><%= game["name"] %></h2>
-            <div class="card-actions justify-end">
-              <%= link_to "Details", game_path(game["id"]), class: "btn btn-neutral" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
   <% else %>
     <div class="text-center py-16">
@@ -41,4 +26,53 @@
       </div>
     </div>
   <% end %>
+
+  <div class="mt-12">
+    <div class="mb-6 pb-4 border-b border-base-300">
+      <h1 class="text-3xl font-bold">Recent Games</h1>
+      <p class="text-base-content/70 mt-1">Explore some popular recent games.</p>
+    </div>
+
+    <%= turbo_frame_tag :games, src: games_path, loading: :lazy do %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div class="flex w-96 flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>
