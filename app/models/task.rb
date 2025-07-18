@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   has_rich_text :content
   belongs_to :user
 
-  validates :name, presence: true
+  validates_presence_of :name
   validates :description, presence: true
   validates :content, presence: true
 
