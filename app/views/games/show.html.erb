@@ -1,3 +1,6 @@
+<div class="mt-6 max-w-4xl mx-auto">
+  <%= link_to "Back to all tasks", tasks_path, class: "btn btn-ghost" %>
+</div>
 <div class="max-w-4xl mx-auto px-4 py-8">
   <div class="card bg-base-100 shadow-xl">
     <figure class="h-96">
@@ -15,7 +18,7 @@
         <% end %>
       </div>
       <div class="divider my-4"></div>
-      <div class="prose max-w-none">
+      <div class="prose max-w-none wrap-anywhere">
         <%= @game["description"].html_safe %>
       </div>
       <div class="divider my-4"></div>
@@ -45,7 +48,5 @@
       </div>
     </div>
   </div>
-  <div class="mt-6">
-    <%= link_to "Back to all tasks", tasks_path, class: "btn btn-ghost" %>
-  </div>
+
 </div>

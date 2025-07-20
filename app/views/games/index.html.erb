@@ -10,7 +10,12 @@
         <div class="card-body justify-between">
           <h2 class="card-title"><%= game["name"] %></h2>
           <div class="card-actions justify-end">
-            <%= link_to "Details", game_path(game["id"]), class: "btn btn-neutral" %>
+            <%= link_to "Details",
+            game_path(game["id"]),
+            class: "btn btn-neutral",
+            data: {
+              turbo: false,
+            } %>
           </div>
         </div>
       </div>
