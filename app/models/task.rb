@@ -2,9 +2,7 @@ class Task < ApplicationRecord
   has_rich_text :content
   belongs_to :user
 
-  validates_presence_of :name
-  validates :description, presence: true
-  validates :content, presence: true
+  validates_presence_of :name, :description, :content
 
   enum :status, {
     todo: "todo", progress: "progress", completed: "completed"
