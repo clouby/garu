@@ -28,7 +28,7 @@ module TasksHelper
 
   def rawg_games_recent_releases
      rawg_connection.get("games") do |req|
-        req.params["page_size"] = 6
+        req.params["page_size"] = 9
         req.params["ordering"] = "released"
     end
   end
