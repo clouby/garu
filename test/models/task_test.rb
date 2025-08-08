@@ -49,4 +49,11 @@ class TaskTest < ActiveSupport::TestCase
     Task.create(name: "A Task", description: "desc", content: "content", user: user)
     assert_equal "A Task", Task.sort_by_name.first.name
   end
+
+  test "should sort by recent created at" do
+    user = users(:simon)
+    Task.create(name: "B Task", description: "desc", content: "content", user: user)
+    Task.create(name: "A Task", description: "desc", content: "content", user: user)
+    assert_equal "A Task", Task.recent_created.first.name
+  end
 end

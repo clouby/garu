@@ -1,6 +1,14 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "minitest/reporters"
+require "minitest/autorun"
+
+Minitest::Reporters.use!(
+  Minitest::Reporters::SpecReporter.new(color: true),
+  ENV,
+  Minitest.backtrace_filter
+)
 
 module ActiveSupport
   class TestCase
