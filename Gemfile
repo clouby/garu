@@ -68,3 +68,5 @@ gem "tailwindcss-rails", "~> 4.2"
 gem "faraday", "~> 2.13"
 
 gem "breadcrumbs_on_rails", "~> 4.1"
+
+gem "rspec-rails", "~> 8.0", :groups => [:development, :test]
