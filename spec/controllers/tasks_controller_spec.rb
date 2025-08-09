@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
   include Devise::Test::IntegrationHelpers
+  fixtures :users, :tasks
 
   let(:user) { users(:simon) }
   let(:task) { tasks(:one) }

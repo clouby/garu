@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  fixtures :users
+
   let(:user) { users(:charlie) }
 
   it "is valid with valid attributes" do

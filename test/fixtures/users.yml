@@ -1,0 +1,11 @@
+simon:
+  email: simon@koko.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
+
+carlos:
+  email: carlos@koko.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
+
+charlie:
+  email: charlie@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'cpassword') %>
