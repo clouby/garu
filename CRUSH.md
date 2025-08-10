@@ -14,11 +14,10 @@ This document outlines essential commands and style guidelines for working with 
 
 ## Testing
 
--   **Run All Tests:** `bin/rails test`
--   **Run System Tests:** `bin/rails test:system`
+-   **Run All RSpec Tests:** `bin/rspec`
+-   **Run a Single RSpec File:** `bin/rspec <path/to/spec_file.rb>`
+    -   *Example:* `bin/rspec spec/models/task_spec.rb`
 -   **Prepare Test Database:** `bin/rails db:test:prepare` (usually run before tests in CI)
--   **Run a Single Test File:** `bin/rails test <path/to/test_file.rb>`
-    -   *Example:* `bin/rails test test/models/task_test.rb`
 
 ## Code Style Guidelines
 
