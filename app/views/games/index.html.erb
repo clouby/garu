@@ -1,24 +1,7 @@
 <%= turbo_frame_tag :games do %>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <% @games["results"].each do |game| %>
-      <div class="card w-86 bg-base-100 shadow-xl image-full h-64">
-        <figure><img
-            src="<%= game["background_image"] %>"
-            alt="<%= game["name"] %>"
-            class="scale-[1.2]"
-          /></figure>
-        <div class="card-body justify-between">
-          <h2 class="card-title"><%= game["name"] %></h2>
-          <div class="card-actions justify-end">
-            <%= link_to "Details",
-            game_path(game["id"]),
-            class: "btn btn-neutral",
-            data: {
-              turbo: false,
-            } %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+        <%= render "game", game: game %>
+      <% end %>
   </div>
 <% end %>

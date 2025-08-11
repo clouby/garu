@@ -78,13 +78,38 @@
 
 <dialog id="modal_game_search" class="modal">
   <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
-    <div class="modal-action">
-      <%# <form method="dialog"> %>
-      <%#   <!-- if there is a button in form, it will close the modal --> %>
-      <%#   <button class="btn">Close</button> %>
-      <%# </form> %>
+    <h3 class="text-lg font-bold">Search a new game</h3>
+    <div class="modal-content">
+    <%= form_with(url: search_games_path, method: :get, data: { turbo_frame: "search_results" }) do |form| %>
+      <div class="join w-full mt-2">
+        <div class="w-full">
+          <%= form.label :query, "Type your favorite game", class: "input join-item w-full" do %>
+            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <%= form.text_field :query, placeholder: "Type your favorite game", autofocus: true %>
+          <% end %>
+        </div>
+        <%= form.submit "Search", class: "btn btn-neutral join-item" %>
+      </div>
+    <% end %>
+    <div class="w-full overflow-y-auto max-h-[200px]">
+        <%= render "games/search_results", games: [] %>
     </div>
+    </div>
+    <!-- <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div> -->
   </div>
 </dialog>

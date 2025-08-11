@@ -33,7 +33,14 @@ module TasksHelper
     end
   end
 
-  def rawg_games_by_id (id)
+  def rawg_games_by_id(id)
     rawg_connection.get("games/#{id}")
+  end
+
+  def rawg_games_search(query)
+    rawg_connection.get("games") do |req|
+      req.params["page_size"] = 6
+      req.params["search"] = query
+    end
   end
 end

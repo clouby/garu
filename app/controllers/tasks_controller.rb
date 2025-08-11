@@ -13,6 +13,7 @@ class TasksController < ApplicationController
 
   def new
   @task = Task.new
+  @games = []
   end
 
   def edit; end
