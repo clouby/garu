@@ -50,6 +50,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :description, :content, :status)
+      params.require(:task).permit(:name, :description, :content, :status, :rawg_game_id)
     end
 end

@@ -17,7 +17,7 @@ export default class extends Controller {
       event.propertyName === "translate" &&
       this.element.open
     ) {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         this.searchInputTarget.focus();
       });
     }
@@ -28,7 +28,7 @@ export default class extends Controller {
   }
 
   selectGame(event) {
-    const game = event.target.dataset;
+    const game = event.currentTarget.dataset;
     this.gameFormOutlet.handleSelectGame(game);
     this.element.close();
   }

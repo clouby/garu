@@ -18,14 +18,14 @@ export default class extends Controller {
 
   openSearchModal() {
     if (this.hasModalFormOutlet) {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         this.modalFormOutlet.openModal();
       });
     }
   }
 
   handleSelectGame({ gameId, gameName }) {
-    console.log({ gameId });
+
     this.gameIdTarget.value = gameId;
     this.gameIdContentTarget.textContent = gameId;
     this.gameNameTarget.textContent = gameName;
