@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_07_165429) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_20_225453) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_07_165429) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.enum "status", default: "todo", null: false, enum_type: "task_status"
+    t.integer "rawg_game_id"
+    t.index ["rawg_game_id"], name: "index_tasks_on_rawg_game_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

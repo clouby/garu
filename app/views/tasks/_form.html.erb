@@ -1,4 +1,4 @@
-<%= form_with(model: task, class: "card-body", data: { turbo: false }) do |form| %>
+<%= form_with model: task, class: "card-body", id: "task-form", data: { turbo: true, controller: "game-form", game_form_modal_form_outlet: "#modal_game_search" } do |form| %>
   <% if task.errors.any? %>
     <div role="alert" class="alert alert-error">
       <svg
@@ -48,6 +48,44 @@
   </div>
 
   <div class="fieldset">
+    <%= form.label :rawg_game_id, "Game", class: "fieldset-legend" %>
+    <div data-game-form-target="gameField">
+      <div class="indicator w-[95%] hidden" data-game-form-target="gameIndicator">
+        <div class="indicator-item indicator-bottom">
+          <div class="tooltip" data-tip="Remove Game">
+            <%= button_tag "&#10005;".html_safe,
+            type: "button",
+            aria: {
+              label: "Remove Game",
+            },
+            class: "btn #{"hidden" unless task.rawg_game_id.present?}".squish,
+            data: {
+              action: "game-form#removeGame",
+              game_form_target: "removeButton",
+            } %>
+          </div>
+        </div>
+        <div class="card border-base-300 border shadow-sm w-full">
+          <div class="card-body">
+            <p class="card-title" data-game-form-target="gameName"></p>
+            <span data-game-form-target="gameIdContent"></span>
+          </div>
+        </div>
+      </div>
+      <%= form.hidden_field :rawg_game_id, data: { game_form_target: "gameId" } %>
+      <div class="flex items-center gap-2">
+        <%= button_tag (task.rawg_game_id.present? ? "Change Game" : "+ Add Game"),
+        type: "button",
+        class: "btn",
+        data: {
+          action: "game-form#openSearchModal",
+          game_form_target: "searchButton",
+        } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="fieldset">
     <%= form.label :status, class: "fieldset-legend" %>
     <%= form.select :status,
                 options_for_select(
@@ -63,7 +101,61 @@
   </div>
 
   <div class="flex mt-6 justify-between items-end">
-    <%= link_to "Back to tasks", tasks_path, class: "btn btn-ghost mt-4" %>
+    <%= link_to "Back", tasks_path, class: "btn btn-ghost mt-4" %>
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<dialog
+  id="modal_game_search"
+  class="modal"
+  data-controller="modal-form"
+  data-modal-form-game-form-outlet="#task-form"
+>
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Search a new game</h3>
+    <div class="modal-content">
+      <%= form_with url: search_games_path, method: :get, id: "current-modal-search", data: { turbo_frame: "search_results" } do |form| %>
+        <div class="join w-full mt-2">
+          <div class="w-full">
+            <%= form.label :query, "Type your favorite game", class: "input join-item w-full" do %>
+              <svg
+                class="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <%= form.text_field :query,
+                              placeholder: "Type your favorite game",
+                              autofocus: true,
+                              data: {
+                                modal_form_target: "searchInput",
+                              } %>
+            <% end %>
+          </div>
+          <%= form.submit "Search", class: "btn btn-neutral join-item" %>
+        </div>
+      <% end %>
+      <div class="w-full overflow-y-auto max-h-[200px]">
+        <%= render "games/search_results", games: [] %>
+      </div>
+    </div>
+    <!--
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+    -->
+  </div>
+</dialog>

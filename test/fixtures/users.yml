@@ -6,38 +6,6 @@ carlos:
   email: carlos@koko.com
   encrypted_password: <%= User.new.send(:password_digest, 'password123') %>
 
-bob:
-  email: bob@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'anotherpassword') %>
-
 charlie:
   email: charlie@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'cpassword') %>
-
-diana:
-  email: diana@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'dpassword') %>
-
-eve:
-  email: eve@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'epassword') %>
-
-frank:
-  email: frank@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'fpassword') %>
-
-grace:
-  email: grace@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'gpassword') %>
-
-heidi:
-  email: heidi@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'hpassword') %>
-
-ivan:
-  email: ivan@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'ipassword') %>
-
-judy:
-  email: judy@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'jpassword') %>

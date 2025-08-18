@@ -12,7 +12,8 @@ class TasksController < ApplicationController
   def show; end
 
   def new
-  @task = Task.new
+    @task = Task.new
+    @games = []
   end
 
   def edit; end
@@ -28,12 +29,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
+    respond_to do |f|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was successfully updated." }
-        format.turbo_stream
+        f.html { redirect_to @task, notice: "Task was successfully updated." }
+        f.turbo_stream
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        f.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -49,6 +50,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :description, :content, :status)
+      params.require(:task).permit(:name, :description, :content, :status, :rawg_game_id)
     end
 end

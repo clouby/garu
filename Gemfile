@@ -43,6 +43,12 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Use guard for file system changes
+  gem "guard"
+  gem "guard-minitest"
+
+  gem "rspec-rails", "~> 8.0"
 end
 
 group :development do
@@ -54,6 +60,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "minitest-reporters", "~> 1.7"
 end
 
 gem "devise", "~> 4.9"

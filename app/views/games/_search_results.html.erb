@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "search_results" do %>
+  <ul class="list bg-base-100 rounded-box<%= games.empty? ? '' : ' pt-2' %>">
+    <% games.each do |game| %>
+      <%= render "games/inline_game", game: game %>
+    <% end %>
+  </ul>
+<% end %>
