@@ -1,4 +1,4 @@
-<%= form_with(model: task, class: "card-body", data: { turbo: false }) do |form| %>
+<%= form_with model: task, class: "card-body", id: "task-form", data: { turbo: false, controller: "game-form", game_form_modal_form_outlet: "#modal_game_search" } do |form| %>
   <% if task.errors.any? %>
     <div role="alert" class="alert alert-error">
       <svg
@@ -49,10 +49,32 @@
 
   <div class="fieldset">
     <%= form.label :rawg_game_id, "Game", class: "fieldset-legend" %>
-    <%= button_tag "+ Add Game",
-    type: "button",
-    class: "btn",
-    onclick: "modal_game_search.showModal()" %>
+    <div data-game-form-target="gameField">
+      <div class="indicator w-[95%] hidden" data-game-form-target="gameIndicator">
+        <div class="indicator-item indicator-bottom">
+          <div class="tooltip" data-tip="Remove Game">
+            <%= button_tag "&#10005;".html_safe,
+              type: "button",
+              aria: { label: "Remove Game" },
+              class: "btn #{"hidden" unless task.rawg_game_id.present?}".squish,
+              data: { action: "game-form#removeGame", game_form_target: "removeButton" } %>
+          </div>
+        </div>
+        <div class="card border-base-300 border shadow-sm w-full">
+          <div class="card-body">
+            <p class="card-title" data-game-form-target="gameName"></p>
+            <span data-game-form-target="gameIdContent"></span>
+          </div>
+        </div>
+      </div>
+      <%= form.hidden_field :rawg_game_id, data: { game_form_target: "gameId" } %>
+      <div class="flex items-center gap-2">
+        <%= button_tag (task.rawg_game_id.present? ? "Change Game" : "+ Add Game"),
+          type: "button",
+          class: "btn",
+          data: { action: "game-form#openSearchModal", game_form_target: "searchButton" } %>
+      </div>
+    </div>
   </div>
 
   <div class="fieldset">
@@ -71,16 +93,16 @@
   </div>
 
   <div class="flex mt-6 justify-between items-end">
-    <%= link_to "Back to tasks", tasks_path, class: "btn btn-ghost mt-4" %>
+    <%= link_to "Back", tasks_path, class: "btn btn-ghost mt-4" %>
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<dialog id="modal_game_search" class="modal">
+<dialog id="modal_game_search" class="modal" data-controller="modal-form" data-modal-form-game-form-outlet="#task-form">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Search a new game</h3>
     <div class="modal-content">
-    <%= form_with(url: search_games_path, method: :get, data: { turbo_frame: "search_results" }) do |form| %>
+    <%= form_with url: search_games_path, method: :get, id: "current-modal-search", data: { turbo_frame: "search_results" } do |form| %>
       <div class="join w-full mt-2">
         <div class="w-full">
           <%= form.label :query, "Type your favorite game", class: "input join-item w-full" do %>
@@ -96,7 +118,7 @@
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <%= form.text_field :query, placeholder: "Type your favorite game", autofocus: true %>
+            <%= form.text_field :query, placeholder: "Type your favorite game", autofocus: true, data: { modal_form_target: "searchInput" } %>
           <% end %>
         </div>
         <%= form.submit "Search", class: "btn btn-neutral join-item" %>

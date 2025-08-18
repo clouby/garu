@@ -1,10 +1,10 @@
 <li class="list-row">
-  <div><%= image_tag game["background_image"], alt: game["name"], class: "size-10 rounded-box" %></div>
+  <div><%= image_tag (game["background_image"].presence || "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp"), alt: game["name"], class: "size-10 rounded-box" %></div>
   <div>
     <div><%= game["name"] %></div>
     <div class="text-xs uppercase font-semibold opacity-60"><%= game["genres"]&.first&.dig("name") || "Unknown Genre" %></div>
   </div>
-  <%= link_to game_path(game["id"]), class: "btn btn-square btn-ghost", data: { turbo_frame: "_top" } do %>
+  <%= button_tag class: "btn btn-square btn-ghost", data: { game_id: game["id"], game_name: game["name"], action: "click->modal-form#selectGame" } do %>
     <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
   <% end %>
 </li>

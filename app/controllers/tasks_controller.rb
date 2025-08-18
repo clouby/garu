@@ -12,8 +12,8 @@ class TasksController < ApplicationController
   def show; end
 
   def new
-  @task = Task.new
-  @games = []
+    @task = Task.new
+    @games = []
   end
 
   def edit; end

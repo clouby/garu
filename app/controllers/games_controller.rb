@@ -11,6 +11,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html { render partial: "games/search_results", locals: { games: @games } }
       format.turbo_stream { render turbo_stream: turbo_stream.replace("search_results", partial: "games/search_results", locals: { games: @games }) }
+      format.json { render json: @games }
     end
   end
 
