@@ -15,6 +15,15 @@ class GamesController < ApplicationController
     end
   end
 
+  def preview
+    @game = rawg_games_by_id(params[:id]).body
+
+    respond_to do |format|
+      format.html { render partial: "games/preview", locals: { game: @game } }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("preview_game", partial: "games/preview", locals: { game: @game }) }
+    end
+  end
+
   def index
     @games = rawg_games_recent_releases.body
   end

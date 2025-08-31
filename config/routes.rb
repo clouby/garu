@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root "statics#home"
-
   devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register", sign_up: "sign_up" }
 
   # Resources implementation for Tasks Controller
@@ -8,9 +7,9 @@ Rails.application.routes.draw do
   resources :games, only: [ :show, :index ] do
     collection do
       get "search"
+      get "preview/:id", to: "games#preview", as: :preview
     end
   end
-
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

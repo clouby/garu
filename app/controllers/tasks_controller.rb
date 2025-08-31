@@ -29,12 +29,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_to do |f|
+    respond_to do |format|
       if @task.update(task_params)
-        f.html { redirect_to @task, notice: "Task was successfully updated." }
-        f.turbo_stream
+        format.html { redirect_to @task, notice: "Task was successfully updated." }
+        format.turbo_stream
       else
-        f.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end

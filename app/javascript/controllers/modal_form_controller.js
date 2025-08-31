@@ -11,6 +11,10 @@ export default class extends Controller {
     );
   }
 
+  closeContainer() {
+    this.element.close();
+  }
+
   handleFocusModal(event) {
     if (
       event.propertyName &&

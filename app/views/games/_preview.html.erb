@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "preview_game" do %>
+  <div class="card border-base-300 border shadow-sm w-full">
+    <div class="card-body">
+      <p class="card-title" data-game-form-target="gameName"><%= game["name"] %></p>
+      <span data-game-form-target="gameIdContent"><%= game["id"] %></span>
+    </div>
+  </div>
+<% end %>

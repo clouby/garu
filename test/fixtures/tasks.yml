@@ -2,18 +2,22 @@ one:
   name: "Buy milk"
   description: "Get 2% milk from the store"
   user: simon
+  rawg_game_id: 1
 
 two:
   name: "Walk the dog"
   description: "Take Fido for a 30 minute walk"
   user: carlos
+  rawg_game_id: 1
 
 three:
   name: "Do laundry"
   description: "Wash, dry, and fold all clothes"
   user: simon
+  rawg_game_id: 1
 
 four:
   name: "Clean the kitchen"
   description: "Wipe counters, do dishes, and sweep the floor"
   user: carlos
+  rawg_game_id: 1

@@ -20,6 +20,13 @@ RSpec.describe "Tasks", type: :system do
     fill_in "Name", with: "New Task"
     fill_in "Description", with: "New Description"
     find('trix-editor').click.set('New content')
+    click_on "+ Add Game"
+    fill_in "query", with: "Portal 2"
+    click_on "Search"
+    sleep 1
+    within "#search_results" do
+      first("button[data-action='click->modal-form#selectGame']").click
+    end
     click_on "Create Task"
 
     expect(page).to have_text("Task was successfully created")

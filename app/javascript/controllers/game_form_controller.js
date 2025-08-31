@@ -25,7 +25,6 @@ export default class extends Controller {
   }
 
   handleSelectGame({ gameId, gameName }) {
-
     this.gameIdTarget.value = gameId;
     this.gameIdContentTarget.textContent = gameId;
     this.gameNameTarget.textContent = gameName;
@@ -42,5 +41,7 @@ export default class extends Controller {
     this.gameNameTarget.classList.add("hidden");
     this.searchButtonTarget.textContent = "+ Add Game";
     this.removeButtonTarget.classList.add("hidden");
+    this.gameIndicatorTarget.classList.add("hidden");
+    this.searchButtonTarget.classList.remove("hidden");
   }
 }

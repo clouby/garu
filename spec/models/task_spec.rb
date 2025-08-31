@@ -6,7 +6,7 @@ RSpec.describe Task, type: :model do
   let(:user) { users(:simon) }
 
   it "is valid with valid attributes" do
-    task = Task.new(name: "First Task", description: "This is a description", content: "<h1>Content</h1>", user: user)
+    task = Task.new(name: "First Task", description: "This is a description", content: "<h1>Content</h1>", user: user, rawg_game_id: 1)
     expect(task).to be_valid
   end
 
@@ -44,14 +44,14 @@ RSpec.describe Task, type: :model do
   end
 
   it "should sort by name" do
-    Task.create(name: "B Task", description: "desc", content: "content", user: user)
-    Task.create(name: "A Task", description: "desc", content: "content", user: user)
+    Task.create(name: "B Task", description: "desc", content: "content", user: user, rawg_game_id: 1)
+    Task.create(name: "A Task", description: "desc", content: "content", user: user, rawg_game_id: 1)
     expect(Task.sort_by_name.first.name).to eq("A Task")
   end
 
   it "should sort by recent created at" do
-    Task.create(name: "B Task", description: "desc", content: "content", user: user)
-    task_a = Task.create(name: "A Task", description: "desc", content: "content", user: user)
+    Task.create(name: "B Task", description: "desc", content: "content", user: user, rawg_game_id: 1)
+    task_a = Task.create(name: "A Task", description: "desc", content: "content", user: user, rawg_game_id: 1)
     expect(Task.recent_created.first).to eq(task_a)
   end
 end

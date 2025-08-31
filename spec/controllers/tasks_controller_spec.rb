@@ -34,7 +34,8 @@ RSpec.describe "Tasks", type: :request do
               name: "New Task",
               description: "A new task description",
               content: "<div>A new task content</div>",
-              status: "todo"
+              status: "todo",
+              rawg_game_id: 1
             }
           }
         }.to change(Task, :count).by(1)
@@ -115,7 +116,7 @@ RSpec.describe "Tasks", type: :request do
   describe "DELETE /tasks/:id" do
     it "destroys the task" do
       # Need to create a new task to be deleted, because the fixture task is used in other tests
-      new_task = Task.create(name: "Task to be deleted", description: "desc", content: "content", user: user)
+      new_task = Task.create(name: "Task to be deleted", description: "desc", content: "content", user: user, rawg_game_id: 1)
       expect {
         delete task_path(new_task)
       }.to change(Task, :count).by(-1)

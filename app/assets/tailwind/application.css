@@ -8,7 +8,7 @@
     themes:
         light --default,
         dark --prefersdark,
-        silk;
+        dark;
 }
 @plugin "./daisyui-theme.js" {
 }

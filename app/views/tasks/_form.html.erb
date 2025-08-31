@@ -50,15 +50,15 @@
   <div class="fieldset">
     <%= form.label :rawg_game_id, "Game", class: "fieldset-legend" %>
     <div data-game-form-target="gameField">
-      <div class="indicator w-[95%] hidden" data-game-form-target="gameIndicator">
-        <div class="indicator-item indicator-bottom">
+      <div class="indicator w-[100%] hidden" data-game-form-target="gameIndicator">
+        <div class="indicator-item indicator-top">
           <div class="tooltip" data-tip="Remove Game">
             <%= button_tag "&#10005;".html_safe,
             type: "button",
             aria: {
               label: "Remove Game",
             },
-            class: "btn #{"hidden" unless task.rawg_game_id.present?}".squish,
+            class: "btn btn-circle btn-xs #{"hidden" unless task.rawg_game_id.present?}".squish,
             data: {
               action: "game-form#removeGame",
               game_form_target: "removeButton",
@@ -73,6 +73,11 @@
         </div>
       </div>
       <%= form.hidden_field :rawg_game_id, data: { game_form_target: "gameId" } %>
+      <% if task.rawg_game_id.present? %>
+        <%= turbo_frame_tag "preview_game", src: preview_games_path(task.rawg_game_id), loading: "lazy" do %>
+            <div class="skeleton h-26 w-full"></div>
+        <% end %>
+      <% else %>
       <div class="flex items-center gap-2">
         <%= button_tag (task.rawg_game_id.present? ? "Change Game" : "+ Add Game"),
         type: "button",
@@ -82,6 +87,7 @@
           game_form_target: "searchButton",
         } %>
       </div>
+      <% end %>
     </div>
   </div>
 
