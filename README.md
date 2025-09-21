@@ -2,6 +2,8 @@
 
 Welcome to Garu! A web application to help you manage your video game backlog. Never lose track of your gaming list again. This application is built with Ruby on Rails and uses the [RAWG Video Games Database API](https://rawg.io/apidocs) to provide game information.
 
+<img width="1788" height="1030" alt="Screenshot 2025-09-20 at 10 51 00 PM" src="https://github.com/user-attachments/assets/c487f69e-a550-4738-a855-340dc0be544c" />
+
 ## ✨ Features
 
 - **User Accounts:** Sign up and manage your own personal game list.
