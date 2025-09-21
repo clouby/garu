@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register", sign_up: "sign_up" }
 
   # Resources implementation for Tasks Controller
-  resources :tasks
+  resources :tasks do
+    collection do
+      patch "toggle/:id", to: "tasks#toggle", as: :toggle
+    end
+  end
   resources :games, only: [ :show, :index ] do
     collection do
       get "search"

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include TasksHelper
 
   before_action :authenticate_user!
-  before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy toggle]
 
   def index
     @tasks = current_user.tasks.recent_created
@@ -32,7 +32,17 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def toggle
+    respond_to do |format|
+      if @task.update(toggle_task_params)
         format.turbo_stream
+        format.html { redirect_to tasks_url, notice: "Task was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -51,5 +61,9 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:name, :description, :content, :status, :rawg_game_id)
+    end
+
+    def toggle_task_params
+      params.permit(:status)
     end
 end

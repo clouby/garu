@@ -88,19 +88,6 @@ RSpec.describe "Tasks", type: :request do
       end
     end
 
-    context "with turbo stream" do
-      it "updates the task and returns a turbo stream" do
-        patch task_path(task), params: {
-          task: {
-            status: "completed"
-          }
-        }, as: :turbo_stream
-        expect(response).to have_http_status(:success)
-        expect(response.media_type).to eq Mime[:turbo_stream]
-        expect(response.body).to include("<turbo-stream action=\"replace\" target=\"#{dom_id(task)}\">")
-      end
-    end
-
     context "with invalid parameters" do
       it "does not update the task" do
         patch task_path(task), params: {
